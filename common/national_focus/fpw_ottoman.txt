@@ -1,0 +1,506 @@
+focus_tree = {
+  id = fpw_ottoman
+  country = { factor = 0 }
+
+  default = no
+  shared_focus = no
+
+  focus = {
+    id = TANZIMAT_ISLAHATLARI
+    icon = GFX_goal_generic_political_reform
+    prerequisite = {}
+    x = 10
+    y = 0
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = MODERN_ORDU_REFORMU
+    icon = GFX_goal_generic_army_doctrine
+    prerequisite = { focus = TANZIMAT_ISLAHATLARI }
+    x = 9
+    y = 1
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      army_experience = 10
+add_equipment_to_stockpile = { type = infantry_equipment amount = 500 }
+    }
+    search_filters = { FOCUS_FILTER_MILITARY }
+  }
+
+  focus = {
+    id = ADLIYE_NEZARETI
+    icon = GFX_goal_generic_justice
+    prerequisite = { focus = TANZIMAT_ISLAHATLARI }
+    x = 11
+    y = 1
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.02
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = VILAYET_NIZAMNAMELERI
+    icon = GFX_goal_generic_government
+    prerequisite = { focus = ADLIYE_NEZARETI }
+    x = 11
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = EGITIM_REFORMU
+    icon = GFX_goal_generic_education_reform
+    prerequisite = { focus = ADLIYE_NEZARETI }
+    x = 9
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_research_slot = 1
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = MAARIF_NEZARETI
+    icon = GFX_goal_generic_science
+    prerequisite = { focus = EGITIM_REFORMU }
+    x = 8
+    y = 3
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_ideas = school_reform
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = BERLIN_KONGRESI_HAZIRLIKLARI
+    icon = GFX_goal_generic_diplomatic_meeting
+    prerequisite = { focus = TANZIMAT_ISLAHATLARI }
+    x = 10
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 100
+set_rule = { can_create_factions = yes }
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = MUTLAK_MONARSIYI_GUVENCELE
+    icon = GFX_goal_generic_monarchy
+    prerequisite = { focus = BERLIN_KONGRESI_HAZIRLIKLARI }
+    x = 10
+    y = 3
+    cost = 5
+    mutually_exclusive = { MEŞRUTIYETI_YENIDEN_ILAN_ET HALK_CUMHURIYETI_YOLUNDA }
+    completion_reward = {
+      add_stability = 0.05
+add_ideas = harsh_censorship
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = MEŞRUTIYETI_YENIDEN_ILAN_ET
+    icon = GFX_goal_generic_constitution
+    prerequisite = { focus = BERLIN_KONGRESI_HAZIRLIKLARI }
+    x = 9
+    y = 3
+    cost = 5
+    mutually_exclusive = { MUTLAK_MONARSIYI_GUVENCELE HALK_CUMHURIYETI_YOLUNDA }
+    completion_reward = {
+      add_political_power = 75
+add_ideas = constitutional_reform
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = HALK_CUMHURIYETI_YOLUNDA
+    icon = GFX_goal_generic_democracy
+    prerequisite = { focus = BERLIN_KONGRESI_HAZIRLIKLARI }
+    x = 11
+    y = 3
+    cost = 5
+    mutually_exclusive = { MUTLAK_MONARSIYI_GUVENCELE MEŞRUTIYETI_YENIDEN_ILAN_ET }
+    completion_reward = {
+      add_stability = -0.05
+add_war_support = 0.1
+add_ideas = early_republican_movement
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = SADRAZAM_YETKILERI
+    icon = GFX_goal_generic_political_pressure
+    prerequisite = { focus = MUTLAK_MONARSIYI_GUVENCELE }
+    x = 10
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = SURA_YI_DEVLET
+    icon = GFX_goal_generic_political_reform
+    prerequisite = { focus = MEŞRUTIYETI_YENIDEN_ILAN_ET }
+    x = 9
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.03
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = TESKILAT_MAHSUSA
+    icon = GFX_goal_generic_espionage
+    prerequisite = { focus = SADRAZAM_YETKILERI }
+    x = 11
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_operative_slot = 1
+    }
+    search_filters = { FOCUS_FILTER_INTELLIGENCE }
+  }
+
+  focus = {
+    id = PADISAHLARIN_FERMANI
+    icon = GFX_goal_generic_authority
+    prerequisite = { focus = SADRAZAM_YETKILERI }
+    x = 10
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_war_support = 0.05
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = ITTIHAT_TERRAKKI
+    icon = GFX_goal_generic_ideology
+    prerequisite = { focus = SURA_YI_DEVLET }
+    x = 9
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 100
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = ULUSAL_MECLIS
+    icon = GFX_goal_generic_democracy
+    prerequisite = { focus = ITTIHAT_TERRAKKI }
+    x = 8
+    y = 6
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.07
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = IC_HIZMETLER
+    icon = GFX_goal_generic_administrative_reform
+    prerequisite = { focus = MEŞRUTIYETI_YENIDEN_ILAN_ET }
+    x = 8
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_ideas = internal_administration
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+}
+  focus = {
+    id = MALIYE_REFORMU
+    icon = GFX_goal_generic_money
+    prerequisite = { focus = TANZIMAT_ISLAHATLARI }
+    x = 13
+    y = 1
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = DUYUNU_UMUMIYE
+    icon = GFX_goal_generic_trade
+    prerequisite = { focus = MALIYE_REFORMU }
+    x = 13
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = -0.02
+add_political_power = 100
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = BORCLAR_IDARESI
+    icon = GFX_goal_generic_political_pressure
+    prerequisite = { focus = DUYUNU_UMUMIYE }
+    x = 13
+    y = 3
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 75
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = HICAZ_DEMIRYOLU
+    icon = GFX_goal_generic_construct_civ_factory
+    prerequisite = { focus = MALIYE_REFORMU }
+    x = 14
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_building_construction = { type = infrastructure level = 2 province = 416 }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = IZMIR_LIMANI
+    icon = GFX_goal_generic_port
+    prerequisite = { focus = HICAZ_DEMIRYOLU }
+    x = 14
+    y = 3
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_building_construction = { type = naval_base level = 1 province = 451 }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = TUTUN_REJISI
+    icon = GFX_goal_generic_production
+    prerequisite = { focus = BORCLAR_IDARESI }
+    x = 13
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.03
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+  }
+
+  focus = {
+    id = DARULFUNUN
+    icon = GFX_goal_generic_science
+    prerequisite = { focus = EGITIM_REFORMU }
+    x = 7
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_research_slot = 1
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = HARB_OKULLARI
+    icon = GFX_goal_generic_army_manoeuvre
+    prerequisite = { focus = DARULFUNUN }
+    x = 7
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      army_experience = 25
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = TIP_FAKULTESI
+    icon = GFX_goal_generic_scientific_exchange
+    prerequisite = { focus = DARULFUNUN }
+    x = 6
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = OGRENCI_AVRUPA
+    icon = GFX_goal_generic_national_focus
+    prerequisite = { focus = HARB_OKULLARI }
+    x = 7
+    y = 6
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 100
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = TELGRAF_HATTI
+    icon = GFX_goal_generic_communications
+    prerequisite = { focus = OGRENCI_AVRUPA }
+    x = 7
+    y = 7
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.02
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = SANAYI_MEKTEBI
+    icon = GFX_goal_generic_industry
+    prerequisite = { focus = TELGRAF_HATTI }
+    x = 7
+    y = 8
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_research_slot = 1
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = ESIT_VERGI
+    icon = GFX_goal_generic_political_reform
+    prerequisite = { focus = BERLIN_KONGRESI_HAZIRLIKLARI }
+    x = 15
+    y = 2
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.02
+    }
+    search_filters = { FOCUS_FILTER_MANPOWER }
+  }
+
+  focus = {
+    id = PATRIKHANE_UZLASI
+    icon = GFX_goal_generic_political_pressure
+    prerequisite = { focus = ESIT_VERGI }
+    x = 15
+    y = 3
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 50
+    }
+    search_filters = { FOCUS_FILTER_MANPOWER }
+  }
+
+  focus = {
+    id = ERMENI_NIZAMNAMESI
+    icon = GFX_goal_generic_improve_relations
+    prerequisite = { focus = PATRIKHANE_UZLASI }
+    x = 15
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_political_power = 75
+    }
+    search_filters = { FOCUS_FILTER_MANPOWER }
+  }
+
+  focus = {
+    id = AYAN_MECLISI
+    icon = GFX_goal_generic_constitution
+    prerequisite = { focus = ESIT_VERGI }
+    x = 16
+    y = 3
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.03
+    }
+    search_filters = { FOCUS_FILTER_POLITICAL }
+  }
+
+  focus = {
+    id = MEDRESE_REFORMU
+    icon = GFX_goal_generic_education
+    prerequisite = { focus = AYAN_MECLISI }
+    x = 16
+    y = 4
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_ideas = secular_education
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+  focus = {
+    id = KIZ_MEKTEPLERI
+    icon = GFX_goal_generic_women_in_the_workforce
+    prerequisite = { focus = MEDRESE_REFORMU }
+    x = 16
+    y = 5
+    cost = 5
+    mutually_exclusive = {}
+    completion_reward = {
+      add_stability = 0.04
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH }
+  }
+
+}
